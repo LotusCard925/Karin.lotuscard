@@ -121,16 +121,16 @@ function initSocialLinks() {
 function showContactInfo() {
     const contactInfo = `
 連絡先情報:
-📧 Email: kajikif.c.maruoka@gmail.com
-📷 Instagram: @kajiki.ftb
-💬 LINE: https://line.me/ti/p/ouBCtUuNBS
+📧 Email: coro1273@gmail.com
+📷 Instagram: @karinrinrin__
+💼 LinkedIn: http://linkedin.com/in/karinrinrin
 
-合同会社カジリバスポーツプロジェクト
-株式会社S.Bホールディングス
-株式会社たじつや
+東洋大学
+国際学部グローバルイノベーション学科
+LinkedIn Student Club 4期生
     `.trim();
     
-    createCustomModal('丸岡幹 - 連絡先情報', contactInfo);
+    createCustomModal('小林果凛 - 連絡先情報', contactInfo);
 }
 
 // カスタムモーダル作成
@@ -172,11 +172,11 @@ function createCustomModal(title, content) {
     `;
 
     modalContent.innerHTML = `
-        <h3 style="color: #9333EA; margin-bottom: 20px; font-size: 24px;">${title}</h3>
+        <h3 style="color: #FF6B35; margin-bottom: 20px; font-size: 24px;">${title}</h3>
         <div style="white-space: pre-line; line-height: 1.8; color: #333; margin-bottom: 30px;">${content}</div>
         <button onclick="this.closest('.custom-modal').remove()" 
-                style="background: #9333EA; color: white; border: none; padding: 12px 24px; 
-                       border-radius: 8px; cursor: pointer; font-weight: 600;">
+                style="background: linear-gradient(135deg, #FF8C42, #FF6B35); color: white; border: none; padding: 12px 24px; 
+                       border-radius: 12px; cursor: pointer; font-weight: 600; box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);">
             閉じる
         </button>
     `;
@@ -265,7 +265,7 @@ async function downloadContactFromModal() {
         // プロフィール画像をBase64で取得（エラーが発生しても続行）
         let profileImageBase64 = '';
         try {
-            profileImageBase64 = await getImageAsBase64('シンボルとロゴタイプ.png');
+            profileImageBase64 = await getImageAsBase64('IMG_5777.jpeg');
         } catch (error) {
             console.log('画像取得エラー（続行）:', error);
         }
@@ -273,15 +273,19 @@ async function downloadContactFromModal() {
         // vCardを作成
         let vCardData = `BEGIN:VCARD
 VERSION:3.0
-FN:丸岡幹
-N:丸岡;幹;;;
-EMAIL;TYPE=INTERNET;TYPE=WORK:kajikif.c.maruoka@gmail.com
-URL:https://maruoka.vercel.app`;
+FN:小林果凛
+N:小林;果凛;;;
+ORG:東洋大学 国際学部グローバルイノベーション学科
+TITLE:LinkedIn Student Club 4期生
+EMAIL;TYPE=INTERNET;TYPE=WORK:coro1273@gmail.com
+URL;TYPE=LinkedIn:http://linkedin.com/in/karinrinrin
+URL;TYPE=Instagram:https://www.instagram.com/karinrinrin__
+NOTE:"海外で働く"を夢から現実へ\\n1年間のアメリカ留学\\n株式会社recriで長期インターン中\\nダンスサークルD-mc所属`;
 
         // プロフィール画像がある場合のみ追加
         if (profileImageBase64 && profileImageBase64.length > 0) {
             vCardData += `
-PHOTO;TYPE=PNG;ENCODING=BASE64:${profileImageBase64}`;
+PHOTO;TYPE=JPEG;ENCODING=BASE64:${profileImageBase64}`;
         }
 
         vCardData += `
@@ -293,7 +297,7 @@ END:VCARD`;
         
         const link = document.createElement('a');
         link.href = url;
-        link.download = 'Maruoka_Miki.vcf'; // 丸岡幹のファイル名
+        link.download = 'Karin_Kobayashi.vcf'; // 小林果凛のファイル名
         link.style.display = 'none';
         document.body.appendChild(link);
         link.click();
@@ -336,13 +340,14 @@ function showToast(message) {
         bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
-        background: #9333EA;
+        background: linear-gradient(135deg, #FF8C42, #FF6B35);
         color: white;
         padding: 12px 24px;
-        border-radius: 8px;
+        border-radius: 16px;
         font-weight: 600;
         z-index: 1001;
         animation: slideUp 0.3s ease;
+        box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
     `;
     toast.textContent = message;
     
@@ -506,7 +511,7 @@ function initSwipeNavigation() {
     let currentTabIndex = 0;
     
     // タブの順序を定義
-    const tabOrder = ['about', 'activities'];
+    const tabOrder = ['about', 'activities', 'gallery'];
     
     tabContent.addEventListener('touchstart', function(e) {
         startX = e.touches[0].clientX;
