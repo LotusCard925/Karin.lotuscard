@@ -278,6 +278,7 @@ N:小林;果凛;;;
 ORG:東洋大学 国際学部グローバルイノベーション学科
 TITLE:LinkedIn Student Club 4期生
 EMAIL;TYPE=INTERNET;TYPE=WORK:coro1273@gmail.com
+URL:https://karin-lotuscard.vercel.app
 URL;TYPE=LinkedIn:http://linkedin.com/in/karinrinrin
 URL;TYPE=Instagram:https://www.instagram.com/karinrinrin__
 NOTE:"海外で働く"を夢から現実へ\\n1年間のアメリカ留学\\n株式会社recriで長期インターン中\\nダンスサークルD-mc所属`;
